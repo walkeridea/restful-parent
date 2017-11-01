@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="UserMapper">
+
+    <!-- 通过USERNAME获取数据 -->
+    <select id="selectDemoByUsername" parameterType="string" resultType="pd" >
+        select
+          u.id userId,u.username,u.password,u.age,u.last_login lastLogin,u.remark,b.id roleId,b.role_name roleName,b.rights,b.parent_id parentId,b.add_qx addQx,b.del_qx delQx,b.edit_qx editQx,find_qx findQx
+        from sys_user u
+        left join sys_role b on u.role_id=b.id
+        where u.username=#{username}
+    </select>
+
+</mapper>
