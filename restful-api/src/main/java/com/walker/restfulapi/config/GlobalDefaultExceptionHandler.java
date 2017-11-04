@@ -13,10 +13,10 @@ import org.springframework.web.servlet.ModelAndView;
 public class GlobalDefaultExceptionHandler {
 
     @ExceptionHandler(Exception.class)
-    public String defaultExceptionHandler(Exception e){
-//        ModelAndView mv=new ModelAndView("/error");
-//        mv.addObject("ex",e.getMessage().replaceAll("\n","<br/>"));
-        return e.getMessage();
+    public ModelAndView defaultExceptionHandler(Exception e){
+        ModelAndView mv=new ModelAndView("/error");
+        mv.addObject("ex",e.getMessage().replaceAll("\n","<br/>"));
+        return mv;
     }
 
 }

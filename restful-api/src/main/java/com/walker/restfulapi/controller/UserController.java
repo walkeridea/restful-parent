@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import java.util.Date;
@@ -24,6 +25,13 @@ public class UserController {
 
     @Resource
     private UserService userService;
+
+    @RequestMapping(value = "/index")
+    public ModelAndView index()throws Exception{
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("index");
+        return mv;
+    }
 
     /**
      * 增加用户信息
